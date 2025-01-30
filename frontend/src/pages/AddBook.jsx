@@ -14,8 +14,17 @@ const AddBook = () => {
 
     const handleAddBook = async (e) => {
         e.preventDefault();
+
+        const img = "https://png.pngtree.com/background/20221027/original/pngtree-paper-books-seamless-pattern-picture-image_1925120.jpg";
+
+        let {title, author, price, quantity, genre, description, published_year, image_url } = book;
+
+        if(!image_url) {
+            image_url = img
+        }
+
         try {
-            await axios.post('/book', book);
+            await axios.post('/book', {title, author, price, quantity, genre, description, published_year, image_url });
             navigate('/'); // Redireciona para a página inicial após cadastrar o livro
         } catch (error) {
             console.error('Erro ao adicionar livro:', error);
@@ -53,6 +62,10 @@ const AddBook = () => {
                 <div className="form-group">
                     <label>Ano de Publicação</label>
                     <input type="number" className="form-control" name="published_year" value={book.published_year} onChange={handleInputChange} />
+                </div>
+                <div className="form-group">
+                    <label>URL da imagem</label>
+                    <input type="text" className="form-control" name="image_url" value={book.image_url} onChange={handleInputChange} />
                 </div>
                 <button type="submit" className="btn btn-primary">Cadastrar</button>
             </form>

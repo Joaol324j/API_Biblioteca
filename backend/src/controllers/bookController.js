@@ -32,7 +32,7 @@ export const getBookById = async (req, res, next) => {
         if (!book) return handleResponse(res, 404, "Livro não encontrado");
         handleResponse(res, 200, "Livro encontrado com sucesso", book);
     } catch (err) {
-        next;;;;;;;;;;;;;;;;(err);
+        next(err);
     }
 };
 

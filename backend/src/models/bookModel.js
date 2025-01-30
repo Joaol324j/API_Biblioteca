@@ -15,7 +15,7 @@ export const getBookByIdService = async (id) => {
 // Criar um livro com a URL da imagem
 export const createBookService = async (title, author, price, quantity, genre, description, publishedYear, image) => {
     const result = await pool.query(
-        "INSERT INTO books (title, author, price, quantity, genre, description, published_year, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+        "INSERT INTO books (title, author, price, quantity, genre, description, published_year, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
         [title, author, price, quantity, genre, description, publishedYear, image]
     );
     return result.rows[0];
