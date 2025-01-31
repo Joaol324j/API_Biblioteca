@@ -1,0 +1,47 @@
+.add-book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.text-center {
+    text-align: center;
+    margin-bottom: 1rem;
+    background-color: black;
+    color: aliceblue;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.form-horizontal {
+    width: 100%;
+    max-width: 600px; /* Limita a largura do formulário */
+}
+
+.form-group {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 2px;
+    background-color: rgb(42, 192, 192);
+}
+
+.form-group label {
+    color: rgb(3, 0, 0); /* Texto branco */
+    background-color:  #007bff;
+    padding: 5px;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.form-control {
+    width: 100%;
+}
+
+button.btn-primary {
+    display: block;
+    width: 100%;
+    max-width: 200px; /* Limita a largura do botão */
+    margin: 1rem auto 10px auto;
+}
