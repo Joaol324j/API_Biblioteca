@@ -11,7 +11,8 @@ const createBookTable = async () => {
             genre VARCHAR(100),
             description VARCHAR(255) NOT NULL,
             published_year INT,
-            created_at TIMESTAMP DEFAULT NOW()
+            created_at TIMESTAMP DEFAULT NOW(),
+            image_url TEXT
         );
     `;
 
