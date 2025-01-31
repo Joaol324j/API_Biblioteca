@@ -12,6 +12,10 @@ const AddBook = () => {
         setBook({ ...book, [name]: value });
     };
 
+    function checkURL(url) {
+        return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+    }
+
     const handleAddBook = async (e) => {
         e.preventDefault();
 
@@ -19,9 +23,9 @@ const AddBook = () => {
 
         let {title, author, price, quantity, genre, description, published_year, image_url } = book;
 
-        if(!image_url) {
+        if(!checkURL(image_url)) {
             image_url = img
-        }
+        };
 
         try {
             await axios.post('/book', {title, author, price, quantity, genre, description, published_year, image_url });

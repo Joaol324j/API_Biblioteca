@@ -27,6 +27,10 @@ const EditBook = () => {
         const { name, value } = e.target;
         setBook({ ...book, [name]: value });
     };
+
+    function checkURL(url) {
+        return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+    };
     
     const handleUpdateBook = async (e) => {
         e.preventDefault();
@@ -35,16 +39,16 @@ const EditBook = () => {
 
         let {title, author, price, quantity, genre, description, published_year, image_url } = book;
 
-        if(!image_url) {
+        if(!checkURL(image_url)) {
             image_url = img
-        }
+        };
 
         try {
             await axios.put(`/book/${id}`, {title, author, price, quantity, genre, description, published_year, image_url});
             navigate('/'); // Redireciona para a página inicial após editar o livro
         } catch (error) {
             console.error('Erro ao atualizar livro:', error);
-        }
+        };
     };
 
     return (
